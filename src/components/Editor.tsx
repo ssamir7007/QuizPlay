@@ -24,6 +24,7 @@ export function Editor({
   setFormat: (s: Format) => void;
 }) {
   const [idx, edit] = useState(-1),
+    [revealed, setRevealed] = useState<Question | null>(null),
     [draft, set] = useState<Question | null>(null),
     [error, err] = useState("");
   return (
@@ -163,7 +164,17 @@ export function Editor({
               <strong>
                 {i + 1}. {q.q}
               </strong>
-              <small>Answer · {q.options[q.answer]}</small>
+              <div>
+                <button
+                  type="button"
+                  className="link"
+                  aria-expanded={revealed === q}
+                  onClick={() => setRevealed(revealed === q ? null : q)}
+                >
+                  {revealed === q ? "Hide answer" : "View answer"}
+                </button>
+              </div>
+              {revealed === q && <small>Answer · {q.options[q.answer]}</small>}
               <div>
                 <button
                   className="link"
