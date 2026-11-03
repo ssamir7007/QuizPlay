@@ -93,4 +93,462 @@
     "why": "Saturn’s rings contain countless pieces of ice and rock.",
     "source": "Sample astronomy notes · Saturn’s rings contain countless pieces of ice and rock."
   }
+,
+  {
+    "q": "What gives Venus its especially hot surface?",
+    "options": [
+      "A dense carbon dioxide atmosphere",
+      "Active geysers",
+      "A lack of clouds",
+      "Its rings"
+    ],
+    "answer": 0,
+    "why": "Carbon dioxide traps heat in Venus's dense atmosphere.",
+    "source": "Sample astronomy notes · Carbon dioxide traps heat in Venus's dense atmosphere."
+  },
+  {
+    "q": "Which planet rotates on a dramatically tilted axis?",
+    "options": [
+      "Venus",
+      "Uranus",
+      "Mercury",
+      "Jupiter"
+    ],
+    "answer": 1,
+    "why": "Uranus's rotation axis is tilted by about 98 degrees.",
+    "source": "Sample astronomy notes · Uranus's rotation axis is tilted by about 98 degrees."
+  },
+  {
+    "q": "Which planet is farthest from the Sun?",
+    "options": [
+      "Mars",
+      "Saturn",
+      "Neptune",
+      "Uranus"
+    ],
+    "answer": 2,
+    "why": "Neptune is the outermost of the eight planets.",
+    "source": "Sample astronomy notes · Neptune is the outermost of the eight planets."
+  },
+  {
+    "q": "Which planet hosts the Great Red Spot?",
+    "options": [
+      "Mars",
+      "Neptune",
+      "Saturn",
+      "Jupiter"
+    ],
+    "answer": 3,
+    "why": "The Great Red Spot is a long-lived storm on Jupiter.",
+    "source": "Sample astronomy notes · The Great Red Spot is a long-lived storm on Jupiter."
+  },
+  {
+    "q": "Which planet has Phobos and Deimos as moons?",
+    "options": [
+      "Mars",
+      "Earth",
+      "Mercury",
+      "Venus"
+    ],
+    "answer": 0,
+    "why": "Phobos and Deimos are Mars's two natural moons.",
+    "source": "Sample astronomy notes · Phobos and Deimos are Mars's two natural moons."
+  },
+  {
+    "q": "Which planet does Titan orbit?",
+    "options": [
+      "Neptune",
+      "Saturn",
+      "Uranus",
+      "Mars"
+    ],
+    "answer": 1,
+    "why": "Titan is Saturn's largest moon.",
+    "source": "Sample astronomy notes · Titan is Saturn's largest moon."
+  },
+  {
+    "q": "What type of object is Pluto?",
+    "options": [
+      "Gas giant",
+      "Star",
+      "Dwarf planet",
+      "Comet"
+    ],
+    "answer": 2,
+    "why": "Pluto is a dwarf planet in the Kuiper Belt.",
+    "source": "Sample astronomy notes · Pluto is a dwarf planet in the Kuiper Belt."
+  },
+  {
+    "q": "Which moon orbits Jupiter?",
+    "options": [
+      "Titan",
+      "Triton",
+      "Phobos",
+      "Europa"
+    ],
+    "answer": 3,
+    "why": "Europa is one of Jupiter's four Galilean moons.",
+    "source": "Sample astronomy notes · Europa is one of Jupiter's four Galilean moons."
+  },
+  {
+    "q": "Which moon orbits Neptune?",
+    "options": [
+      "Triton",
+      "Io",
+      "Callisto",
+      "Titan"
+    ],
+    "answer": 0,
+    "why": "Triton is a large moon of Neptune.",
+    "source": "Sample astronomy notes · Triton is a large moon of Neptune."
+  },
+  {
+    "q": "Which two planets have no natural moons?",
+    "options": [
+      "Venus and Earth",
+      "Mercury and Venus",
+      "Earth and Mars",
+      "Mars and Mercury"
+    ],
+    "answer": 1,
+    "why": "Neither Mercury nor Venus has a natural satellite.",
+    "source": "Sample astronomy notes · Neither Mercury nor Venus has a natural satellite."
+  },
+  {
+    "q": "What causes the seasons on Earth?",
+    "options": [
+      "Earth's changing mass",
+      "The Moon's rotation",
+      "Earth's axial tilt",
+      "Changes in solar color"
+    ],
+    "answer": 2,
+    "why": "Earth's tilt changes the angle and duration of sunlight throughout its orbit.",
+    "source": "Sample astronomy notes · Earth's tilt changes the angle and duration of sunlight throughout its orbit."
+  },
+  {
+    "q": "What causes the phases of the Moon?",
+    "options": [
+      "Earth's shadow every night",
+      "The Moon changing shape",
+      "Changes in solar output",
+      "Our changing view of its sunlit half"
+    ],
+    "answer": 3,
+    "why": "As the Moon orbits Earth, different portions of its sunlit half are visible.",
+    "source": "Sample astronomy notes · As the Moon orbits Earth, different portions of its sunlit half are visible."
+  },
+  {
+    "q": "What happens during a solar eclipse?",
+    "options": [
+      "The Moon passes between Earth and the Sun",
+      "Earth passes between the Moon and Sun",
+      "Mars blocks the Sun",
+      "The Sun stops shining"
+    ],
+    "answer": 0,
+    "why": "During a solar eclipse the Moon blocks sunlight from reaching part of Earth.",
+    "source": "Sample astronomy notes · During a solar eclipse the Moon blocks sunlight from reaching part of Earth."
+  },
+  {
+    "q": "What happens during a lunar eclipse?",
+    "options": [
+      "The Moon casts a shadow on the Sun",
+      "Earth casts a shadow on the Moon",
+      "Venus covers the Moon",
+      "The Moon stops rotating"
+    ],
+    "answer": 1,
+    "why": "A lunar eclipse occurs when the Moon enters Earth's shadow.",
+    "source": "Sample astronomy notes · A lunar eclipse occurs when the Moon enters Earth's shadow."
+  },
+  {
+    "q": "Which body has the strongest influence on Earth's tides?",
+    "options": [
+      "Jupiter",
+      "Venus",
+      "The Moon",
+      "Saturn"
+    ],
+    "answer": 2,
+    "why": "Differences in the Moon's gravitational pull across Earth drive most tidal variation.",
+    "source": "Sample astronomy notes · Differences in the Moon's gravitational pull across Earth drive most tidal variation."
+  },
+  {
+    "q": "What does one astronomical unit approximate?",
+    "options": [
+      "The width of the Milky Way",
+      "A lunar month",
+      "Earth's radius",
+      "Earth's average distance from the Sun"
+    ],
+    "answer": 3,
+    "why": "The astronomical unit is based on the average Earth–Sun distance.",
+    "source": "Sample astronomy notes · The astronomical unit is based on the average Earth–Sun distance."
+  },
+  {
+    "q": "How long does light from the Sun take to reach Earth?",
+    "options": [
+      "About eight minutes",
+      "About eight seconds",
+      "About eight hours",
+      "About eight days"
+    ],
+    "answer": 0,
+    "why": "Sunlight takes roughly eight minutes to travel one astronomical unit.",
+    "source": "Sample astronomy notes · Sunlight takes roughly eight minutes to travel one astronomical unit."
+  },
+  {
+    "q": "What is the Sun's visible surface called?",
+    "options": [
+      "Corona",
+      "Photosphere",
+      "Core",
+      "Mantle"
+    ],
+    "answer": 1,
+    "why": "The photosphere is the visible layer from which most sunlight escapes.",
+    "source": "Sample astronomy notes · The photosphere is the visible layer from which most sunlight escapes."
+  },
+  {
+    "q": "What is the Sun's outer atmosphere called?",
+    "options": [
+      "Crust",
+      "Mantle",
+      "Corona",
+      "Photosphere"
+    ],
+    "answer": 2,
+    "why": "The corona extends far above the Sun's visible surface.",
+    "source": "Sample astronomy notes · The corona extends far above the Sun's visible surface."
+  },
+  {
+    "q": "What is a sunspot?",
+    "options": [
+      "A hole through the Sun",
+      "A small moon",
+      "A planet's shadow",
+      "A cooler region on the Sun's surface"
+    ],
+    "answer": 3,
+    "why": "Strong magnetic fields produce cooler, darker areas called sunspots.",
+    "source": "Sample astronomy notes · Strong magnetic fields produce cooler, darker areas called sunspots."
+  },
+  {
+    "q": "What are auroras associated with?",
+    "options": [
+      "Charged particles exciting atmospheric gases",
+      "Sunlight reflecting off oceans",
+      "Lava cooling",
+      "Moonlight passing through clouds"
+    ],
+    "answer": 0,
+    "why": "Energetic particles interact with gases high in Earth's atmosphere to produce auroras.",
+    "source": "Sample astronomy notes · Energetic particles interact with gases high in Earth's atmosphere to produce auroras."
+  },
+  {
+    "q": "What is a comet largely made of?",
+    "options": [
+      "Pure liquid iron",
+      "Ice, dust and rock",
+      "Only hydrogen gas",
+      "Earthlike soil alone"
+    ],
+    "answer": 1,
+    "why": "Comet nuclei contain frozen material mixed with dust and rock.",
+    "source": "Sample astronomy notes · Comet nuclei contain frozen material mixed with dust and rock."
+  },
+  {
+    "q": "Which direction does a comet's ion tail point?",
+    "options": [
+      "Toward the Sun",
+      "Always toward Earth",
+      "Away from the Sun",
+      "Always along its orbit"
+    ],
+    "answer": 2,
+    "why": "The solar wind carries ionized gas generally away from the Sun.",
+    "source": "Sample astronomy notes · The solar wind carries ionized gas generally away from the Sun."
+  },
+  {
+    "q": "What is a meteor?",
+    "options": [
+      "A rock resting on Earth",
+      "A type of galaxy",
+      "A dwarf planet",
+      "A streak of light in the atmosphere"
+    ],
+    "answer": 3,
+    "why": "A meteor is the light emitted when a meteoroid enters an atmosphere.",
+    "source": "Sample astronomy notes · A meteor is the light emitted when a meteoroid enters an atmosphere."
+  },
+  {
+    "q": "What is a meteorite?",
+    "options": [
+      "Space debris that reaches the ground",
+      "A star near Earth",
+      "A comet's gas tail",
+      "A lunar sea"
+    ],
+    "answer": 0,
+    "why": "A meteorite is material from space that survives passage through the atmosphere.",
+    "source": "Sample astronomy notes · A meteorite is material from space that survives passage through the atmosphere."
+  },
+  {
+    "q": "Where is the Kuiper Belt?",
+    "options": [
+      "Inside Mercury's orbit",
+      "Beyond Neptune",
+      "Inside the Sun",
+      "Between Earth and Mars"
+    ],
+    "answer": 1,
+    "why": "The Kuiper Belt lies beyond Neptune and contains many icy bodies.",
+    "source": "Sample astronomy notes · The Kuiper Belt lies beyond Neptune and contains many icy bodies."
+  },
+  {
+    "q": "What is an exoplanet?",
+    "options": [
+      "A planet without an atmosphere",
+      "An extinct star",
+      "A planet outside our solar system",
+      "A moon of Earth"
+    ],
+    "answer": 2,
+    "why": "An exoplanet is a planet beyond our solar system.",
+    "source": "Sample astronomy notes · An exoplanet is a planet beyond our solar system."
+  },
+  {
+    "q": "How can the transit method reveal a planet?",
+    "options": [
+      "The planet emits a radio pulse",
+      "The star changes galaxy",
+      "The star stops rotating",
+      "A star dims as the planet passes in front"
+    ],
+    "answer": 3,
+    "why": "A transiting planet blocks a small fraction of its star's light.",
+    "source": "Sample astronomy notes · A transiting planet blocks a small fraction of its star's light."
+  },
+  {
+    "q": "What is a nebula?",
+    "options": [
+      "A cloud of gas and dust",
+      "A rocky moon",
+      "A planet's surface",
+      "An artificial satellite"
+    ],
+    "answer": 0,
+    "why": "Nebulae are clouds of gas and dust in space.",
+    "source": "Sample astronomy notes · Nebulae are clouds of gas and dust in space."
+  },
+  {
+    "q": "What is a supernova?",
+    "options": [
+      "A regular lunar phase",
+      "A stellar explosion",
+      "A comet's tail",
+      "A solar eclipse"
+    ],
+    "answer": 1,
+    "why": "A supernova is a powerful explosion involving a star.",
+    "source": "Sample astronomy notes · A supernova is a powerful explosion involving a star."
+  },
+  {
+    "q": "What is a white dwarf?",
+    "options": [
+      "A small planet made of ice",
+      "A newborn galaxy",
+      "A dense stellar remnant",
+      "A large asteroid"
+    ],
+    "answer": 2,
+    "why": "A white dwarf is the compact remnant left by a low- or intermediate-mass star.",
+    "source": "Sample astronomy notes · A white dwarf is the compact remnant left by a low- or intermediate-mass star."
+  },
+  {
+    "q": "What defines a black hole's event horizon?",
+    "options": [
+      "The surface where rock melts",
+      "The edge of a galaxy",
+      "The nearest planetary orbit",
+      "The boundary beyond which light cannot escape"
+    ],
+    "answer": 3,
+    "why": "Light emitted inside an event horizon cannot reach distant observers outside it.",
+    "source": "Sample astronomy notes · Light emitted inside an event horizon cannot reach distant observers outside it."
+  },
+  {
+    "q": "What is a pulsar?",
+    "options": [
+      "A rotating neutron star with beams of radiation",
+      "A young rocky planet",
+      "A cloud of comets",
+      "A spiral galaxy"
+    ],
+    "answer": 0,
+    "why": "As a pulsar rotates its radiation beams may sweep past Earth periodically.",
+    "source": "Sample astronomy notes · As a pulsar rotates its radiation beams may sweep past Earth periodically."
+  },
+  {
+    "q": "What is a binary star system?",
+    "options": [
+      "One star with two planets",
+      "Two stars orbiting a common center of mass",
+      "Two unrelated galaxies",
+      "One star seen twice in a mirror"
+    ],
+    "answer": 1,
+    "why": "Binary stars are gravitationally bound and orbit their shared center of mass.",
+    "source": "Sample astronomy notes · Binary stars are gravitationally bound and orbit their shared center of mass."
+  },
+  {
+    "q": "What does a radio telescope detect?",
+    "options": [
+      "Sound waves in space",
+      "Ocean tides",
+      "Radio waves",
+      "Only visible light"
+    ],
+    "answer": 2,
+    "why": "Radio telescopes collect electromagnetic radiation at radio wavelengths.",
+    "source": "Sample astronomy notes · Radio telescopes collect electromagnetic radiation at radio wavelengths."
+  },
+  {
+    "q": "What does a spectroscope do?",
+    "options": [
+      "Measures gravity directly",
+      "Blocks all starlight",
+      "Measures time alone",
+      "Separates light by wavelength"
+    ],
+    "answer": 3,
+    "why": "Spectroscopy separates light into wavelengths to study properties such as composition.",
+    "source": "Sample astronomy notes · Spectroscopy separates light into wavelengths to study properties such as composition."
+  },
+  {
+    "q": "What is stellar parallax?",
+    "options": [
+      "An apparent shift from a change in viewing position",
+      "A star exploding",
+      "A planet changing orbit",
+      "A star cooling rapidly"
+    ],
+    "answer": 0,
+    "why": "Nearby stars appear to shift relative to distant stars as Earth's viewing position changes.",
+    "source": "Sample astronomy notes · Nearby stars appear to shift relative to distant stars as Earth's viewing position changes."
+  },
+  {
+    "q": "Which color generally indicates a hotter star?",
+    "options": [
+      "Red",
+      "Blue",
+      "Orange",
+      "Deep red"
+    ],
+    "answer": 1,
+    "why": "Blue stars have higher surface temperatures than red or orange stars.",
+    "source": "Sample astronomy notes · Blue stars have higher surface temperatures than red or orange stars."
+  }
+
 ]

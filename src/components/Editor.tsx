@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { type Question, validateQuestions } from "../services/questions";
 import type { Format } from "./Run";
+import { QuestionCount, type CountProps } from "./QuestionCount";
 export function Editor({
   deck,
   save,
@@ -8,7 +9,13 @@ export function Editor({
   close,
   format,
   setFormat,
-}: {
+  count, setCount, regenerate, hasSource, busy, generationError, excerptsOnly,
+}: CountProps & {
+  regenerate: () => void;
+  hasSource: boolean;
+  busy: boolean;
+  generationError: string;
+  excerptsOnly: boolean;
   deck: Question[];
   save: (q: Question[]) => void;
   start: () => void;
@@ -28,10 +35,24 @@ export function Editor({
             My deck <small>({deck.length})</small>
           </h2>
         </div>
-        <button className="plain" onClick={close}>
+        <button className="plain" disabled={busy} onClick={close}>
           Back to setup
         </button>
       </div>
+      <fieldset disabled={busy} style={{border:0, padding:0, margin:0, minWidth:0}}>
+      <QuestionCount count={count} setCount={setCount} />
+      {hasSource ? (
+        <div>
+          <small>{deck.length ? "Generating replaces the current deck and its edits." : "Generate a deck from your study material."}</small>
+          {excerptsOnly && <small>Using the source excerpts saved with this deck. Upload the original notes on the setup screen to use their full text.</small>}
+          <button className="plain" disabled={idx >= 0} onClick={regenerate}>
+            {busy ? "Generating…" : deck.length ? "Regenerate deck" : "Generate deck"}
+          </button>
+          {generationError && <p role="alert">{generationError}</p>}
+        </div>
+      ) : (
+        <small>Add your study material on the setup screen to generate this many questions.</small>
+      )}
       {!deck.length ? (
         <p>
           Add study notes or select the sample deck on the setup screen to
@@ -168,6 +189,7 @@ export function Editor({
           )}
         </article>
       ))}
+      </fieldset>
     </section>
   );
 }

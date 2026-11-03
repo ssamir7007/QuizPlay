@@ -15,6 +15,8 @@ Open the local URL printed by Vite. The development server includes the Express 
 
 ## Playing
 
+Choose 1–50 questions on setup or in **My deck**. The default is 12. **Regenerate deck** replaces the current questions only after the requested number is ready. If the notes are too short, lower the count or add more material.
+
 Choose 1–50 moves between questions and 1–9 hearts. Start a session, review or edit the deck, then select **Play now**. The default quiz format is multiple choice. **Mixed practice** also offers true/false and typed answers using the same validated question data.
 
 - **2048** uses arrows or swipes. Only board-changing moves count.

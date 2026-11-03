@@ -2,8 +2,9 @@ import React, { useRef, useState } from "react";
 import { ArcadeArt, GameArt, Icon } from "./Art";
 import { readNotes } from "../services/readNotes";
 import type { GameName } from "../games/core";
+import { QuestionCount, type CountProps } from "./QuestionCount";
 export type Settings = { game: GameName; frequency: number; hearts: number };
-type Props = {
+type Props = CountProps & {
   settings: Settings;
   setSettings: (s: Settings) => void;
   notes: string;
@@ -204,6 +205,7 @@ export function Lobby(p: Props) {
               <Icon name="arrow" />
             </button>
           </div>
+          <QuestionCount count={p.count} setCount={p.setCount} />
         </section>
         <section className="panel">
           <div className="panelhead">

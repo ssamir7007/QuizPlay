@@ -4,7 +4,7 @@ import { Icon, Pad } from "./components/Art";
 import { Editor } from "./components/Editor";
 import { Run, type Format } from "./components/Run";
 import { generateQuiz } from "./services/quizGenerator";
-import { validateQuestions, type Question } from "./services/questions";
+import { DEFAULT_QUESTION_COUNT, validCount, validateQuestions, type Question } from "./services/questions";
 import "./style.css";
 function read(key: string) {
   try {
@@ -56,23 +56,32 @@ export default function App() {
         : "Multiple choice",
     );
   const [notes, write] = useState(""),
+    [sourceNotes, setSourceNotes] = useState(""),
     [busy, loading] = useState(false);
+  const [count, setCount] = useSaved("count", () => {
+    const stored = read("count");
+    return validCount(stored) ? stored : DEFAULT_QUESTION_COUNT;
+  });
+  const isSample = deck.length > 0 && deck.every(q => q.source?.startsWith("Sample astronomy notes ·"));
+  const savedExcerpts = [...new Set(deck.map(q => q.source?.trim()).filter(Boolean))].join("\n\n");
+  const deckSource = sourceNotes || (isSample ? "Sample astronomy notes" : savedExcerpts);
   useEffect(() => {
     document.documentElement.dataset.theme = dark ? "dark" : "light";
   }, [dark]);
-  async function generate() {
+  async function generate(input: string) {
     if (busy) return;
-    if (!notes.trim() && deck.length) {
+    if (!input.trim() && deck.length) {
       go("deck");
       return;
     }
     loading(true);
     fail("");
     try {
-      const result = await generateQuiz(notes);
+      const result = await generateQuiz(input, count);
       if (!validateQuestions(result))
         throw Error("Invalid quiz data. Please retry.");
       save(result);
+      setSourceNotes(input);
       write("");
       go("deck");
     } catch (e) {
@@ -132,7 +141,9 @@ export default function App() {
             notes={notes}
             setNotes={write}
             deckSize={deck.length}
-            onStart={generate}
+            count={count}
+            setCount={setCount}
+            onStart={() => generate(notes)}
             busy={busy}
             error={error}
             setError={fail}
@@ -140,6 +151,13 @@ export default function App() {
           />
         ) : page === "deck" ? (
           <Editor
+            count={count}
+            setCount={setCount}
+            busy={busy}
+            generationError={error}
+            hasSource={Boolean(notes.trim() || deckSource)}
+            excerptsOnly={!notes.trim() && !sourceNotes && !isSample && Boolean(savedExcerpts)}
+            regenerate={() => generate(notes.trim() ? notes : deckSource)}
             deck={deck}
             save={save}
             close={() => go("setup")}

@@ -26,3 +26,8 @@ export function validateQuestions(value: unknown): value is Question[] {
     )
   );
 }
+export const MAX_QUESTIONS = 50;
+export const DEFAULT_QUESTION_COUNT = 12;
+export function validCount(value: unknown): value is number {
+  return typeof value === "number" && Number.isInteger(value) && value >= 1 && value <= MAX_QUESTIONS;
+}

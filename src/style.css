@@ -839,3 +839,19 @@ footer i {
     font-size: 22px;
   }
 }
+.question-count {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 16px 0 0;
+  font-size: 14px;
+  font-weight: 650;
+}
+.question-count select {
+  padding: 7px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--soft);
+  color: var(--ink);
+}
