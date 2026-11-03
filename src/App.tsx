@@ -175,7 +175,7 @@ export default function App() {
         )}
       </main>
       <footer>
-        <span>QUIZPLAY &nbsp;/&nbsp; STUDY ARCADE</span>
+        <span>QUIZPLAY</span>
         <span>
           <i /> LOCAL SAVE ENABLED
         </span>
