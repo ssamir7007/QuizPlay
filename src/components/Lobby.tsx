@@ -103,7 +103,6 @@ export function Lobby(p: Props) {
               <h2>Study material</h2>
             </div>
           </div>
-          <p className="subtitle">Gemini uses your notes to write practice questions.</p>
           <div className="tabs">
             <button
               className={tab === "file" ? "active" : ""}
