@@ -40,8 +40,7 @@ export function Editor({
       ) : (
         <>
           <p>
-            Review your questions before you play. The demo uses sample
-            astronomy questions.
+            Review your questions before you play.
           </p>
           <label>
             Question format{" "}
@@ -172,3 +171,4 @@ export function Editor({
     </section>
   );
 }
+

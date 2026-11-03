@@ -1,6 +1,6 @@
 # QuizPlay
 
-Turn study sessions into short puzzle runs. Upload TXT, Markdown, or a text-based PDF, paste notes, or choose the sample deck. The demo always generates the same 12 astronomy questions. Notes and PDF parsing stay in the browser.
+Turn study sessions into short puzzle runs. Upload TXT, Markdown, or a text-based PDF, paste notes, or choose the sample deck. PDF text is extracted in your browser. Starting a session sends that text to Gemini through the backend. The sample astronomy deck works offline.
 
 ## Run locally
 
@@ -25,10 +25,9 @@ Quiz breaks pause all game timers. Missed questions return after up to two inter
 
 ## Connecting the AI API
 
-1. Copy `.env.example` to `.env` and set the blank `AI_API_KEY=` value when ready. Load this file into your **server** environment (for example, `node --env-file=.env server/index.js` after building). Configure the secret in the hosting environment for a deployed backend.
-2. Edit `server/generateQuiz.js`, the shared handler for **POST /api/generate-quiz**. Replace its fixture return with your provider call using `env.AI_API_KEY`. The Express adapter lives in `server/api.js`; the private preview uses `server/worker.js`.
-3. Edit `src/services/quizGenerator.ts`. Replace the mock delay and fixture with a JSON POST containing `{ notesText }` to that route. Check the HTTP status, parse the response, and keep the existing `validateQuestions(result)` check. Throw a helpful error to trigger the setup screen’s retry action.
-4. Return a nonempty array matching the exported `Question` type in `src/services/questions.ts`. Each question has a prompt, four options, a zero-based correct index, an explanation, and optional source text. Supply an excerpt from the student’s notes as the source. Keep provider keys out of browser code and Vite-prefixed variables.
+Set AI_API_KEY in the private Site runtime secrets for hosted play. For local development, copy .env.example to .env, fill in AI_API_KEY, and start Vite with `node --env-file=.env node_modules/vite/bin/vite.js`. For local production use `node --env-file=.env server/index.js` after building.
+
+The browser calls POST /api/generate-quiz. The shared handler in server/generateQuiz.js sends the notes to Gemini, requests structured JSON and validates the question array. Set GEMINI_MODEL to override gemini-flash-latest. The sample deck bypasses the API.
 
 ## Project layout
 
@@ -38,4 +37,5 @@ Quiz breaks pause all game timers. Missed questions return after up to two inter
 - `src/data/` — shared mock deck
 - `server/` — local API and serverless adapter
 - `tests/` — logic tests using the Node test runner
+
 

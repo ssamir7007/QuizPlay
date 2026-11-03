@@ -23,12 +23,14 @@ export function Lobby(p: Props) {
   const file = useRef<HTMLInputElement>(null);
   async function load(f?: File) {
     if (!f || reading) return;
+    p.setNotes("");
+    fileTo("");
     readingTo(true);
     p.setError("");
     try {
       const text = await readNotes(f);
       if (!text.trim())
-        throw Error("No readable text found. Try pasting your notes.");
+        throw Error("No readable text found. For scanned PDFs, copy text with OCR and paste it here.");
       p.setNotes(text);
       fileTo(f.name);
     } catch (e) {
@@ -100,7 +102,7 @@ export function Lobby(p: Props) {
               <h2>Study material</h2>
             </div>
           </div>
-          <p className="subtitle">Add the notes you want to practice.</p>
+          <p className="subtitle">Gemini uses your notes to write practice questions.</p>
           <div className="tabs">
             <button
               className={tab === "file" ? "active" : ""}
@@ -171,6 +173,7 @@ export function Lobby(p: Props) {
             ref={file}
             onChange={(e) => void load(e.target.files?.[0])}
           />
+          {filename && p.notes.trim() && <p role="status" className="subtitle">{p.notes === "Sample astronomy notes" ? "Sample deck ready." : p.notes.trim().split(/\s+/).length.toLocaleString() + " words extracted."} Select Start session below to prepare your quiz.</p>}
           <div className="sample">
             <span className="sample-icon">
               <Icon name="bolt" />
@@ -288,3 +291,5 @@ export function Lobby(p: Props) {
     </>
   );
 }
+
+
