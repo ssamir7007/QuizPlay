@@ -1,0 +1,96 @@
+[
+  {
+    "q": "Which planet is known as the Red Planet?",
+    "options": ["Venus", "Mars", "Mercury", "Saturn"],
+    "answer": 1,
+    "why": "Iron oxides on Mars give its surface a reddish color.",
+    "source": "Sample astronomy notes · Iron oxides on Mars give its surface a reddish color."
+  },
+  {
+    "q": "What keeps planets in orbit?",
+    "options": ["Gravity", "Magnetism", "Starlight", "Friction"],
+    "answer": 0,
+    "why": "The Sun’s gravity bends the paths of the planets into orbits.",
+    "source": "Sample astronomy notes · The Sun’s gravity bends the paths of the planets into orbits."
+  },
+  {
+    "q": "Which star is closest to Earth?",
+    "options": ["Sirius", "Vega", "Polaris", "The Sun"],
+    "answer": 3,
+    "why": "Earth orbits the Sun, the star at the center of our solar system.",
+    "source": "Sample astronomy notes · Earth orbits the Sun, the star at the center of our solar system."
+  },
+  {
+    "q": "Which planet is largest?",
+    "options": ["Earth", "Neptune", "Jupiter", "Uranus"],
+    "answer": 2,
+    "why": "Jupiter is the largest planet in our solar system.",
+    "source": "Sample astronomy notes · Jupiter is the largest planet in our solar system."
+  },
+  {
+    "q": "What causes day and night on Earth?",
+    "options": [
+      "The Moon’s orbit",
+      "Earth’s rotation",
+      "Solar flares",
+      "Ocean tides"
+    ],
+    "answer": 1,
+    "why": "Earth rotates, bringing different places into sunlight.",
+    "source": "Sample astronomy notes · Earth rotates, bringing different places into sunlight."
+  },
+  {
+    "q": "Which galaxy contains our solar system?",
+    "options": ["Andromeda", "Sombrero", "Milky Way", "Whirlpool"],
+    "answer": 2,
+    "why": "Our solar system lies within the Milky Way.",
+    "source": "Sample astronomy notes · Our solar system lies within the Milky Way."
+  },
+  {
+    "q": "Which planet is closest to the Sun?",
+    "options": ["Mercury", "Venus", "Mars", "Earth"],
+    "answer": 0,
+    "why": "Mercury follows the innermost planetary orbit.",
+    "source": "Sample astronomy notes · Mercury follows the innermost planetary orbit."
+  },
+  {
+    "q": "What does a light-year measure?",
+    "options": ["Time", "Mass", "Brightness", "Distance"],
+    "answer": 3,
+    "why": "A light-year is the distance light travels in one year.",
+    "source": "Sample astronomy notes · A light-year is the distance light travels in one year."
+  },
+  {
+    "q": "What powers the Sun?",
+    "options": ["Combustion", "Nuclear fusion", "Wind", "Gravity waves"],
+    "answer": 1,
+    "why": "In the Sun’s core, hydrogen nuclei fuse into helium and release energy.",
+    "source": "Sample astronomy notes · In the Sun’s core, hydrogen nuclei fuse into helium and release energy."
+  },
+  {
+    "q": "What is Earth’s natural satellite?",
+    "options": ["Mars", "Europa", "The Moon", "Titan"],
+    "answer": 2,
+    "why": "The Moon is the natural satellite that orbits Earth.",
+    "source": "Sample astronomy notes · The Moon is the natural satellite that orbits Earth."
+  },
+  {
+    "q": "Where is the main asteroid belt?",
+    "options": [
+      "Beyond Neptune",
+      "Inside Mercury’s orbit",
+      "Between Earth and Mars",
+      "Between Mars and Jupiter"
+    ],
+    "answer": 3,
+    "why": "Most main-belt asteroids orbit between Mars and Jupiter.",
+    "source": "Sample astronomy notes · Most main-belt asteroids orbit between Mars and Jupiter."
+  },
+  {
+    "q": "Which planet is famous for its bright rings?",
+    "options": ["Saturn", "Earth", "Venus", "Mercury"],
+    "answer": 0,
+    "why": "Saturn’s rings contain countless pieces of ice and rock.",
+    "source": "Sample astronomy notes · Saturn’s rings contain countless pieces of ice and rock."
+  }
+]
