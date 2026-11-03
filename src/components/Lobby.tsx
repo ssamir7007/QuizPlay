@@ -83,7 +83,7 @@ export function Lobby(p: Props) {
             <i /> SYSTEM ONLINE
           </div>
           <h1>
-            Study <em>arcade.</em>
+            Quiz<em>Play</em>
           </h1>
           <p>Your notes become questions. Your moves keep you in the game.</p>
         </div>
