@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { ArcadeArt, GameArt, Icon } from "./Art";
 import { readNotes } from "../services/readNotes";
-import type { GameName } from "../games/core";
+import { gameNames, type GameName } from "../games/core";
 import { QuestionCount, type CountProps } from "./QuestionCount";
 export type Settings = { game: GameName; frequency: number; hearts: number };
 type Props = CountProps & {
@@ -205,7 +205,7 @@ export function Lobby(p: Props) {
               <Icon name="arrow" />
             </button>
           </div>
-          <QuestionCount count={p.count} setCount={p.setCount} />
+          {p.settings.game !== "Hangman" && <QuestionCount count={p.count} setCount={p.setCount} />}
         </section>
         <section className="panel">
           <div className="panelhead">
@@ -220,9 +220,10 @@ export function Lobby(p: Props) {
           <p className="subtitle">Pick your puzzle and set the challenge.</p>
           <div className="eyebrow gamelabel">SELECT GAME</div>
           <div className="choices">
-            {(["2048", "Tetris", "Snake"] as GameName[]).map((g) => (
+            {gameNames.map((g) => (
               <button
                 aria-pressed={p.settings.game === g}
+                disabled={p.busy}
                 className={
                   "choice " + (p.settings.game === g ? "selected" : "")
                 }
@@ -235,7 +236,7 @@ export function Lobby(p: Props) {
               </button>
             ))}
           </div>
-          {counter(
+          {p.settings.game !== "Hangman" && counter(
             "frequency",
             "Quiz frequency",
             "Moves between questions",
@@ -249,7 +250,7 @@ export function Lobby(p: Props) {
           {p.error}{" "}
           <button
             onClick={
-              p.notes.trim() || p.deckSize
+              p.notes.trim() || p.deckSize || p.settings.game === "Hangman"
                 ? p.onStart
                 : () =>
                     tab === "file"
@@ -269,11 +270,11 @@ export function Lobby(p: Props) {
               <Icon name="game" />
               {p.settings.game}
             </span>
-            <span>
+            {p.settings.game !== "Hangman" && <span>
               <Icon name="bolt" />
               Every {p.settings.frequency}{" "}
               {p.settings.frequency === 1 ? "move" : "moves"}
-            </span>
+            </span>}
             <span>
               <Icon name="heart" />
               {p.settings.hearts} {p.settings.hearts === 1 ? "heart" : "hearts"}

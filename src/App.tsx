@@ -3,7 +3,10 @@ import { Lobby, type Settings } from "./components/Lobby";
 import { Icon, Pad } from "./components/Art";
 import { Editor } from "./components/Editor";
 import { Run, type Format } from "./components/Run";
-import { generateQuiz } from "./services/quizGenerator";
+import { HangmanRun } from "./components/HangmanRun";
+import { gameNames } from "./games/core";
+import { generateQuiz, generateHangmanQuestions } from "./services/quizGenerator";
+import { validateHangmanQuestions, type HangmanQuestion } from "./services/hangmanQuestions";
 import { DEFAULT_QUESTION_COUNT, validCount, validateQuestions, type Question } from "./services/questions";
 import "./style.css";
 function read(key: string) {
@@ -29,10 +32,13 @@ function settings(): Settings {
   const bounded = (n: number, max: number, def: number) =>
     Number.isInteger(n) && n >= 1 && n <= max ? n : def;
   return {
-    game: ["2048", "Tetris", "Snake"].includes(s?.game) ? s.game : "2048",
+    game: gameNames.includes(s?.game) ? s.game : "2048",
     hearts: bounded(s?.hearts, 9, 3),
     frequency: bounded(s?.frequency, 50, 5),
   };
+}
+function isMoveGame(settings: Settings): settings is Settings & { game: Exclude<Settings["game"], "Hangman"> } {
+  return settings.game !== "Hangman";
 }
 export default function App() {
   const [page, go] = useState<"setup" | "deck" | "play">("setup"),
@@ -58,6 +64,11 @@ export default function App() {
   const [notes, write] = useState(""),
     [sourceNotes, setSourceNotes] = useState(""),
     [busy, loading] = useState(false);
+  const [hangmanDeck, saveHangman] = useSaved<HangmanQuestion[]>("hangmanDeck", () => {
+    const valid = validateHangmanQuestions(read("hangmanDeck"));
+    return valid.length >= 5 ? valid : [];
+  });
+  const isHangman = cfg.game === "Hangman";
   const [count, setCount] = useSaved("count", () => {
     const stored = read("count");
     return validCount(stored) ? stored : DEFAULT_QUESTION_COUNT;
@@ -90,6 +101,25 @@ export default function App() {
           ? e.message
           : "Could not prepare your deck. Please retry.",
       );
+    } finally {
+      loading(false);
+    }
+  }
+  async function startHangman() {
+    if (busy) return;
+    fail("");
+    if (!notes.trim() && hangmanDeck.length) {
+      go("play");
+      return;
+    }
+    loading(true);
+    try {
+      const questions = await generateHangmanQuestions(notes.trim() ? notes : deckSource);
+      saveHangman(questions);
+      write("");
+      go("play");
+    } catch (error) {
+      fail(error instanceof Error ? error.message : "Could not prepare Hangman. Please retry.");
     } finally {
       loading(false);
     }
@@ -140,15 +170,24 @@ export default function App() {
             setSettings={configure}
             notes={notes}
             setNotes={write}
-            deckSize={deck.length}
+            deckSize={isHangman ? hangmanDeck.length : deck.length}
             count={count}
             setCount={setCount}
-            onStart={() => generate(notes)}
+            onStart={isHangman ? startHangman : () => generate(notes)}
             busy={busy}
             error={error}
             setError={fail}
             onReview={() => go("deck")}
           />
+        ) : page === "deck" && isHangman ? (
+          <section className="panel editor">
+            <div className="playhead"><h2>Hangman deck ({hangmanDeck.length})</h2>
+              <button className="plain" onClick={() => go("setup")}>Back to setup</button></div>
+            {hangmanDeck.length ? <><p>Each clue is one round. Answers stay hidden until the round ends.</p>
+              <button className="primary" onClick={() => go("play")}>Play Hangman</button>
+              {hangmanDeck.map(q => <article key={q.question}>{q.question}</article>)}</> :
+              <p>Add notes or choose the sample deck on the setup screen.</p>}
+          </section>
         ) : page === "deck" ? (
           <Editor
             count={count}
@@ -165,6 +204,8 @@ export default function App() {
             format={format}
             setFormat={setFormat}
           />
+        ) : !isMoveGame(cfg) ? (
+          <HangmanRun questions={hangmanDeck} hearts={cfg.hearts} exit={() => go("setup")} />
         ) : (
           <Run
             settings={cfg}

@@ -3,6 +3,10 @@
   "buildCommand": "tsc --noEmit && vite build",
   "outputDirectory": "dist",
   "functions": {
+    "api/generate-hangman.js": {
+      "maxDuration": 180,
+      "includeFiles": "src/{services/hangmanQuestions.ts,data/hangmanSample.json}"
+    },
     "api/generate-quiz.js": {
       "maxDuration": 180,
       "includeFiles": "src/services/questions.ts"

@@ -1,4 +1,20 @@
 import sample from "../data/questions.json";
+import hangmanSample from "../data/hangmanSample.json";
+import { validateHangmanQuestions, type HangmanQuestion } from "./hangmanQuestions";
+export type { HangmanQuestion } from "./hangmanQuestions";
+
+export async function generateHangmanQuestions(notesText: string): Promise<HangmanQuestion[]> {
+  if (!notesText.trim()) throw new Error("Add study notes or choose the sample deck.");
+  if (notesText === "Sample astronomy notes") return validateHangmanQuestions(hangmanSample);
+  const response = await fetch("/api/generate-hangman", {
+    method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify({notesText}),
+  });
+  const data = await response.json().catch(() => null);
+  if (!response.ok) throw new Error(data?.error || "Could not prepare Hangman. Please retry.");
+  const valid = validateHangmanQuestions(data);
+  if (valid.length < 5) throw new Error("This deck needs five usable questions. Please retry.");
+  return valid;
+}
 import { DEFAULT_QUESTION_COUNT, validCount, validateQuestions, type Question } from "./questions";
 export type { Question } from "./questions";
 

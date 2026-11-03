@@ -1,9 +1,10 @@
 import files from "virtual:quizplay-assets";
 import { generateQuizResponse } from "./generateQuiz.js";
+import { generateHangmanResponse } from "./generateHangman.js";
 export default {
   async fetch(request, env) {
     const path = new URL(request.url).pathname;
-    if (path === "/api/generate-quiz") {
+    if (path === "/api/generate-quiz" || path === "/api/generate-hangman") {
       if (request.method !== "POST")
         return new Response("Use POST", {
           status: 405,
@@ -15,7 +16,7 @@ export default {
       } catch {
         return Response.json({ error: "Expected JSON." }, { status: 400 });
       }
-      return generateQuizResponse(body, env);
+      return path === "/api/generate-hangman" ? generateHangmanResponse(body, env) : generateQuizResponse(body, env);
     }
     const file = files[path === "/" ? "/index.html" : path];
     if (!Array.isArray(file))

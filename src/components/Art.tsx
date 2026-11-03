@@ -89,6 +89,9 @@ export function ArcadeArt() {
   );
 }
 export function GameArt({ name }: { name: string }) {
+  if (name === "Hangman") return <svg width="65" height="44" viewBox="0 0 74 50" aria-hidden="true" stroke="currentColor" strokeWidth="3" fill="none">
+    <path d="M9 44h28M19 44V5h28v7M19 17l12-12"/><circle cx="47" cy="17" r="5" fill="#ffda53"/>
+    <path d="M47 22v11m0-9-7 6m7-6 7 6m-7 3-6 9m6-9 6 9"/></svg>;
   const cells =
     name === "Tetris"
       ? [

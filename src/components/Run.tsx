@@ -19,7 +19,7 @@ export function Run({
   format,
   exit,
 }: {
-  settings: Settings;
+  settings: Settings & { game: Exclude<Settings["game"], "Hangman"> };
   questions: Question[];
   format: Format;
   exit: () => void;

@@ -1,0 +1,92 @@
+[
+  {
+    "question": "Which planet is known for its prominent rings?",
+    "answer": "Saturn",
+    "why": "Saturn has bright rings made of ice and rock.",
+    "source": "Saturn has bright rings made of ice and rock."
+  },
+  {
+    "question": "What force keeps planets in orbit?",
+    "answer": "Gravity",
+    "why": "Gravity bends each planet’s path around the Sun.",
+    "source": "Gravity bends each planet’s path around the Sun."
+  },
+  {
+    "question": "Which galaxy contains Earth?",
+    "answer": "Milky Way",
+    "why": "Our solar system lies in the Milky Way.",
+    "source": "Our solar system lies in the Milky Way."
+  },
+  {
+    "question": "Which planet has the Great Red Spot?",
+    "answer": "Jupiter",
+    "why": "The Great Red Spot is a storm on Jupiter.",
+    "source": "The Great Red Spot is a storm on Jupiter."
+  },
+  {
+    "question": "Which planet orbits closest to the Sun?",
+    "answer": "Mercury",
+    "why": "Mercury follows the innermost planetary orbit.",
+    "source": "Mercury follows the innermost planetary orbit."
+  },
+  {
+    "question": "Which planet is called the Red Planet?",
+    "answer": "Mars",
+    "why": "Iron oxides give Mars a reddish surface.",
+    "source": "Iron oxides give Mars a reddish surface."
+  },
+  {
+    "question": "What is Earth’s natural satellite?",
+    "answer": "Moon",
+    "why": "The Moon is Earth’s natural satellite.",
+    "source": "The Moon is Earth’s natural satellite."
+  },
+  {
+    "question": "Which star does Earth orbit?",
+    "answer": "Sun",
+    "why": "Earth orbits the Sun.",
+    "source": "Earth orbits the Sun."
+  },
+  {
+    "question": "Which planet is farthest from the Sun?",
+    "answer": "Neptune",
+    "why": "Neptune is the outermost planet.",
+    "source": "Neptune is the outermost planet."
+  },
+  {
+    "question": "Which planet rotates on its side?",
+    "answer": "Uranus",
+    "why": "Uranus has an axial tilt of about 98 degrees.",
+    "source": "Uranus has an axial tilt of about 98 degrees."
+  },
+  {
+    "question": "Which planet has a dense atmosphere that traps intense heat?",
+    "answer": "Venus",
+    "why": "Venus has a dense carbon dioxide atmosphere.",
+    "source": "Venus has a dense carbon dioxide atmosphere."
+  },
+  {
+    "question": "What kind of icy body develops a tail near the Sun?",
+    "answer": "Comet",
+    "why": "A comet releases gas and dust when sunlight warms its ice.",
+    "source": "A comet releases gas and dust when sunlight warms its ice."
+  },
+  {
+    "question": "What is the Sun’s outer atmosphere called?",
+    "answer": "Corona",
+    "why": "The corona extends beyond the visible solar surface.",
+    "source": "The corona extends beyond the visible solar surface."
+  },
+  {
+    "question": "Which large moon of Saturn has a thick atmosphere?",
+    "answer": "Titan",
+    "why": "Titan is Saturn’s largest moon and has a thick atmosphere.",
+    "source": "Titan is Saturn’s largest moon and has a thick atmosphere."
+  },
+  {
+    "question": "What unit measures the distance light travels in a year?",
+    "answer": "Light-year",
+    "why": "A light-year measures the distance light travels in one year.",
+    "source": "A light-year measures the distance light travels in one year."
+  }
+]

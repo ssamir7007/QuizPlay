@@ -31,6 +31,14 @@ Set AI_API_KEY in the private Site runtime secrets for hosted play. For local de
 
 The browser calls POST /api/generate-quiz. The shared handler in server/generateQuiz.js sends the notes to Gemini, requests structured JSON and validates the question array. Set GEMINI_MODEL to override gemini-flash-latest. The sample deck bypasses the API.
 
+## Hangman
+
+Choose Hangman on the setup screen to spell answers from your notes. Each wrong letter draws one of six parts. Completing the figure, skipping, or submitting an incorrect whole answer costs one shared heart. A wrong whole answer leaves the figure unchanged and the round continues while hearts remain. Spaces and hyphens are revealed automatically. After each round, read the answer and explanation before continuing.
+
+A solve earns 100 points plus 10 per unused part. Consecutive solves without a lost heart add 10 per round, up to 50 bonus points. A failed or skipped round earns zero and resets the streak. At zero hearts the run ends with accuracy and missed-question sources.
+
+`POST /api/generate-hangman` accepts `{ notesText }` and requests about 15 short answers from Gemini. It retries an invalid deck once and needs at least five usable questions. It accepts the server secret `GEMINI_API_KEY` or the existing `AI_API_KEY`. With no key, local play uses the sample astronomy questions. Hangman saves its deck separately in localStorage. Game selection is available on the setup screen.
+
 ## Project layout
 
 - `src/components/` — setup, game view, deck editor, and arcade artwork

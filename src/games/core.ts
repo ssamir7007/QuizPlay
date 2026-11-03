@@ -1,4 +1,5 @@
-export type GameName = "2048" | "Tetris" | "Snake";
+export const gameNames = ["2048", "Tetris", "Snake", "Hangman"] as const;
+export type GameName = typeof gameNames[number];
 export type Hooks = {
   onMove: () => void;
   onChange: () => void;
