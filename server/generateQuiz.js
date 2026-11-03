@@ -37,7 +37,7 @@ export async function generateQuizResponse(body, env) {
     });
     if (response.status === 429) return error("Gemini's quota or rate limit was reached. Try again later or check your Google project quota.", 429);
     if ([400,401,403].includes(response.status)) return error("Gemini rejected the request. Check your server key, model access and API restrictions.", 502);
-    if (!response.ok) return error("Gemini is unavailable for this model. Please try again.", 502);
+    if (!response.ok) return error("The Gemini request for " + model + " returned HTTP " + response.status + ". Please retry.", 502);
     const data = await response.json();
     const parts = data.candidates?.[0]?.content?.parts ?? [];
     const questions = JSON.parse(parts.filter(part=>!part.thought).map(part=>part.text || "").join(""));
@@ -49,3 +49,4 @@ export async function generateQuizResponse(body, env) {
     return error("Could not read a complete quiz from Gemini. Please retry.", 502);
   }
 }
+
