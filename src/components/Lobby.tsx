@@ -31,7 +31,7 @@ export function Lobby(p: Props) {
     try {
       const text = await readNotes(f);
       if (!text.trim())
-        throw Error("No readable text found. For scanned PDFs, copy text with OCR and paste it here.");
+        throw Error("No readable text found. For scans or image-only documents, extract the text with OCR and paste it here.");
       p.setNotes(text);
       fileTo(f.name);
     } catch (e) {
@@ -153,7 +153,7 @@ export function Lobby(p: Props) {
                   </>
                 )}
               </span>
-              <small>TXT &nbsp;·&nbsp; MD &nbsp;·&nbsp; PDF</small>
+              <small>TXT · MD · PDF · DOC · DOCX</small>
             </button>
           ) : (
             <textarea
@@ -169,7 +169,7 @@ export function Lobby(p: Props) {
           )}
           <input
             type="file"
-            accept=".txt,.md,.pdf"
+            accept=".txt,.md,.pdf,.doc,.docx"
             hidden
             ref={file}
             onChange={(e) => void load(e.target.files?.[0])}

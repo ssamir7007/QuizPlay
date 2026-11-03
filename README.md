@@ -1,6 +1,6 @@
 # QuizPlay
 
-Turn study sessions into short puzzle runs. Upload TXT, Markdown, or a text-based PDF, paste notes, or choose the sample deck. PDF text is extracted in your browser. Starting a session sends that text to Gemini through the backend. The sample astronomy deck works offline.
+Turn study sessions into short puzzle runs. Upload TXT, Markdown, a text-based PDF, or a Word document (.doc or .docx), paste notes, or choose the sample deck. Document text is extracted in your browser. Starting a session sends that text to Gemini through the backend. The sample astronomy deck works offline.
 
 ## Run locally
 

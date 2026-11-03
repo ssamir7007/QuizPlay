@@ -1,7 +1,11 @@
 export async function readNotes(file: File): Promise<string> {
   if (/\.(txt|md)$/i.test(file.name)) return file.text();
+  if (/\.docx?$/i.test(file.name)) {
+    const { readWord } = await import("./readWord");
+    return readWord(file);
+  }
   if (!/\.pdf$/i.test(file.name))
-    throw new Error("Choose a TXT, MD, or PDF file.");
+    throw new Error("Choose a TXT, MD, PDF, DOC, or DOCX file.");
   const pdfjs = await import("pdfjs-dist");
   pdfjs.GlobalWorkerOptions.workerSrc = (
     await import("pdfjs-dist/build/pdf.worker.min.mjs?url")

@@ -1,0 +1,4 @@
+.openai
+.env*
+dist
+node_modules

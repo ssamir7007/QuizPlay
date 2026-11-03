@@ -1,0 +1,11 @@
+{
+  "framework": "vite",
+  "buildCommand": "tsc --noEmit && vite build",
+  "outputDirectory": "dist",
+  "functions": {
+    "api/generate-quiz.js": {
+      "maxDuration": 180,
+      "includeFiles": "src/services/questions.ts"
+    }
+  }
+}
