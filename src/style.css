@@ -887,3 +887,22 @@ footer i {
   .hm-keyboard { grid-template-columns: repeat(7,1fr); }
   .hm-figure { flex-basis: 68px; width: 68px; }
 }
+
+.notes-review {
+  margin: 1rem 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+  overflow-wrap: anywhere;
+}
+.notes-review summary {
+  padding: .85rem 1rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+.notes-review ul {
+  margin: 0 1rem 1rem;
+  padding-left: 1.25rem;
+  line-height: 1.5;
+}
+.notes-review li + li { margin-top: .5rem; }

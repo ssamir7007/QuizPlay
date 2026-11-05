@@ -1,4 +1,5 @@
-import React, { useRef, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
+import { summarizeNotes } from "../services/summarizeNotes";
 import { ArcadeArt, GameArt, Icon } from "./Art";
 import { readNotes } from "../services/readNotes";
 import { gameNames, type GameName } from "../games/core";
@@ -22,8 +23,12 @@ export function Lobby(p: Props) {
     [drag, dragTo] = useState(false),
     [reading, readingTo] = useState(false);
   const file = useRef<HTMLInputElement>(null);
+  const [reviewOpen, setReviewOpen] = useState(false);
+  const hasReview = Boolean(p.notes.trim()) && p.notes !== "Sample astronomy notes";
+  const points = useMemo(() => reviewOpen && hasReview ? summarizeNotes(p.notes) : [], [reviewOpen, hasReview, p.notes]);
   async function load(f?: File) {
-    if (!f || reading) return;
+    if (!f || reading || p.busy) return;
+    setReviewOpen(false);
     p.setNotes("");
     fileTo("");
     readingTo(true);
@@ -174,6 +179,12 @@ export function Lobby(p: Props) {
             onChange={(e) => void load(e.target.files?.[0])}
           />
           {filename && p.notes.trim() && <p role="status" className="subtitle">{p.notes === "Sample astronomy notes" ? "Sample deck ready." : p.notes.trim().split(/\s+/).length.toLocaleString() + " words extracted."} Select Start session below to prepare your quiz.</p>}
+          {hasReview && (
+            <details className="notes-review" onToggle={event => setReviewOpen(event.currentTarget.open)}>
+              <summary>Review notes summary</summary>
+              {reviewOpen && <ul>{points.map((point, index) => <li key={index}>{point}</li>)}</ul>}
+            </details>
+          )}
           <div className="sample">
             <span className="sample-icon">
               <Icon name="bolt" />
