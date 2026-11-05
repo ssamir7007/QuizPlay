@@ -906,3 +906,4 @@ footer i {
   line-height: 1.5;
 }
 .notes-review li + li { margin-top: .5rem; }
+.review-status { margin: 0 1rem 1rem; }
