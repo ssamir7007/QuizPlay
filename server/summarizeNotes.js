@@ -17,17 +17,34 @@ export async function summarizeNotesResponse(body, env) {
   if (typeof notes !== "string" || !notes.trim()) return error("Add some study notes first.", 400);
   if (notes.length > 100000) return error("This document exceeds the 100,000-character summary limit. Review one section at a time.", 413);
   if (!geminiKey(env)) return error("Study summaries are unavailable until Gemini is configured.", 503);
-  try {
-    const result = await requestQuestions(env, notes, instruction, {
-      type: "ARRAY", items: { type: "STRING" }, minItems: 1, maxItems: 12,
-    }, 120000);
-    if (result.status === 429) return error("The summary service is busy. Please retry in a moment.", 429);
-    if (!result.ok) throw Error();
-    const points = await readQuestions(result);
-    if (!Array.isArray(points) || !points.length || points.length > 12 ||
-        !points.every(p => typeof p === "string" && p.trim())) throw Error();
-    return Response.json(points, { headers: { "Cache-Control": "no-store" } });
-  } catch {
-    return error("Your study summary could not be generated. Please retry.", 502);
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const result = await requestQuestions(env, notes, instruction, {
+        type: "ARRAY", items: { type: "STRING" }, minItems: 1, maxItems: 12,
+      }, 60000);
+      if (!result.ok) {
+        const detail = await result.json().catch(() => null);
+        const reason = detail?.error?.details?.find(item => item.reason)?.reason;
+        console.warn("Summary provider error", result.status, reason || detail?.error?.status);
+        if (result.status === 429) return error("Gemini’s request limit was reached. Try again later.", 429);
+        if ([400, 401, 403, 404].includes(result.status))
+          return error("The summary service needs attention from the site owner. You can still review your notes.", 503);
+        if (result.status >= 500 && !attempt) {
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          continue;
+        }
+        return error("Gemini is temporarily unavailable. Try again in a moment.", 503);
+      }
+      const points = await readQuestions(result);
+      if (!Array.isArray(points) || !points.length || !points.every(p => typeof p === "string" && p.trim()))
+        throw new SyntaxError("Invalid study guide");
+      return Response.json(points, { headers: { "Cache-Control": "no-store" } });
+    } catch (cause) {
+      console.warn("Summary generation failed", cause?.name);
+      if (!attempt) continue;
+      if (cause?.name === "SyntaxError")
+        return error("Gemini returned an incomplete study guide. Please retry.", 502);
+      return error("The summary service did not respond in time. Please retry.", 504);
+    }
   }
 }
